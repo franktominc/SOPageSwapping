@@ -4,7 +4,7 @@ using System.Linq;
 namespace MemoryManagement {
     internal class Memory {
         private int Size { get; set; }
-        private int[] Frames { get; set; }
+        public int[] Frames { get; set; }
         private readonly SortedSet<long> _emptyPositions;
 
         public Memory(int size) {
@@ -24,7 +24,7 @@ namespace MemoryManagement {
             return false;
         }
 
-        public long WhereIs(int frame) {
+        public int WhereIs(int frame) {
             for (var i = 0; i < Size; i++) {
                 if (Frames[i] == frame)
                     return i;

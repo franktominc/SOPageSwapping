@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MemoryManagement {
     class Program {
-        static void Main(string[] args) {
-            var a = new[] {-1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1};
-            Console.WriteLine(a.Where(x => x != -1));
+        public static void Main() {
+            var frame = "07b243a0";
+            var frameToConvert = frame.Split(null)[0].Substring(0, 5);
+            var frameAsInt = Convert.ToInt32(frameToConvert,16);
+            Console.WriteLine(frameAsInt);
             
             Console.ReadKey();
         }
+
+        
     }
 }
