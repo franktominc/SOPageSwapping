@@ -3,10 +3,9 @@
 namespace MemoryManagement {
     class Program {
         public static void Main() {
-            var frame = "07b243a0";
-            var frameToConvert = frame.Split(null)[0].Substring(0, 5);
-            var frameAsInt = Convert.ToInt32(frameToConvert,16);
-            Console.WriteLine(frameAsInt);
+            var os = new OptimalSimulator(@"c:\Users\Frank\Desktop\Test1.txt", 5);
+            os.Simulate();
+            
             
             Console.ReadKey();
         }

@@ -14,6 +14,9 @@ namespace MemoryManagement {
             for (var i = 0; i < Size; i++) {
                 _emptyPositions.Add(i);
             }
+            for (int i = 0; i < Frames.Length; i++) {
+                Frames[i] = -1;
+            }
         }
 
         public bool IsInMemory(int frame) {
