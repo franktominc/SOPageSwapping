@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AditionalBitsSimulator.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="OptimalSimulator.cs" />
     <Compile Include="Program.cs" />

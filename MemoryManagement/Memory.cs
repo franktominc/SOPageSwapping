@@ -5,12 +5,12 @@ namespace MemoryManagement {
     internal class Memory {
         private int Size { get; set; }
         public int[] Frames { get; set; }
-        private readonly SortedSet<long> _emptyPositions;
+        private readonly SortedSet<int> _emptyPositions;
 
         public Memory(int size) {
             Size = size;
             Frames = new int[Size];
-            _emptyPositions = new SortedSet<long>();
+            _emptyPositions = new SortedSet<int>();
             for (var i = 0; i < Size; i++) {
                 _emptyPositions.Add(i);
             }
@@ -44,9 +44,11 @@ namespace MemoryManagement {
             }
         }
 
-        public void LoadFrame(int frame) {
-            Frames[_emptyPositions.First()] =  frame;
-            _emptyPositions.Remove(_emptyPositions.First());
+        public int LoadFrame(int frame) {
+            int where = _emptyPositions.First();
+            Frames[where] =  frame;
+            _emptyPositions.Remove(where);
+            return where;
         }
 
         public void SwapFrame(int frameA, int frameB) {
@@ -55,6 +57,10 @@ namespace MemoryManagement {
 
         public bool IsFull() {
             return Frames.Where(x=> x!=-1).Count() == Size;
+        }
+
+        public int FrameAt(int position) {
+            return Frames[position];
         }
     }
 }
